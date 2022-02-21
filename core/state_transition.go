@@ -18,6 +18,7 @@ package core
 
 import (
 	"fmt"
+	"github.com/ethereum/go-ethereum/log"
 	"math"
 	"math/big"
 
@@ -199,6 +200,7 @@ func (st *StateTransition) buyGas() error {
 		balanceCheck.Add(balanceCheck, st.value)
 	}
 	if have, want := st.state.GetBalance(st.msg.From()), balanceCheck; have.Cmp(want) < 0 {
+		log.Error("debug for ErrInsufficientFunds 2", "from", st.msg.From(), "pool.currentState.GetBalance(from)", st.state.GetBalance(st.msg.From()), "tx.Cost()",st)
 		return fmt.Errorf("%w: address %v have %v want %v", ErrInsufficientFunds, st.msg.From().Hex(), have, want)
 	}
 	if err := st.gp.SubGas(st.msg.Gas()); err != nil {
