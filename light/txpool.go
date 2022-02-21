@@ -378,6 +378,7 @@ func (pool *TxPool) validateTx(ctx context.Context, tx *types.Transaction) error
 	// Transactor should have enough funds to cover the costs
 	// cost == V + GP * GL
 	if b := currentState.GetBalance(from); b.Cmp(tx.Cost()) < 0 {
+		log.Error("debug for ErrInsufficientFunds 3", "from", from, "pool.currentState.GetBalance(from)", currentState.GetBalance(from), "tx.Cost()",tx)
 		return core.ErrInsufficientFunds
 	}
 
