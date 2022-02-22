@@ -632,12 +632,12 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 	// Transactor should have enough funds to cover the costs
 	// cost == V + GP * GL
 	if pool.currentState.GetBalance(from).Cmp(tx.Cost()) < 0 {
-		log.Error("debug for ErrInsufficientFunds", "from", from, "pool.currentState.GetBalance(from)", pool.currentState.GetBalance(from), "tx.Cost()",tx.Cost(),
+		log.Error("debug for ErrInsufficientFunds 0", "from", from, "pool.currentState.GetBalance(from)", pool.currentState.GetBalance(from), "tx.Cost()",tx.Cost(),
 			"tx.Gas()",tx.Gas(), "tx.GasPrice()", tx.GasPrice(), "tx.GasFeeCap()",tx.GasFeeCap(),"tx.GasTipCap()",tx.GasTipCap(), "tx.Value()", tx.Value(),
 			"tx.Nonce()", tx.Nonce(), "tx.Data()", tx.Data())
 		return ErrInsufficientFunds
 	} else {
-		log.Error("debug for ErrInsufficientFunds", "from", from, "pool.currentState.GetBalance(from)", pool.currentState.GetBalance(from), "tx.Cost()",tx.Cost(),
+		log.Error("debug for ErrInsufficientFunds 1", "from", from, "pool.currentState.GetBalance(from)", pool.currentState.GetBalance(from), "tx.Cost()",tx.Cost(),
 			"tx.Gas()",tx.Gas(), "tx.GasPrice()", tx.GasPrice(), "tx.GasFeeCap()",tx.GasFeeCap(),"tx.GasTipCap()",tx.GasTipCap(), "tx.Value()", tx.Value(),
 			"tx.Nonce()", tx.Nonce(), "tx.Data()", tx.Data())
 	}
