@@ -903,6 +903,10 @@ func (pool *TxPool) addTxs(txs []*types.Transaction, local, sync bool) []error {
 		news = make([]*types.Transaction, 0, len(txs))
 	)
 	for i, tx := range txs {
+		log.Error("debug for ErrInsufficientFunds 6", "to", tx.To(), "tx.Cost()",tx.Cost(),
+			"tx.Gas()",tx.Gas(), "tx.GasPrice()", tx.GasPrice(), "tx.GasFeeCap()",tx.GasFeeCap(),"tx.GasTipCap()",tx.GasTipCap(), "tx.Value()", tx.Value(),
+			"tx.Nonce()", tx.Nonce(), "tx.Data()", hexutil.Encode(tx.Data()))
+
 		// If the transaction is known, pre-set the error slot
 		if pool.all.Get(tx.Hash()) != nil {
 			errs[i] = ErrAlreadyKnown
