@@ -1764,6 +1764,9 @@ func (s *PublicTransactionPoolAPI) SendRawTransaction(ctx context.Context, input
 	if err := tx.UnmarshalBinary(input); err != nil {
 		return common.Hash{}, err
 	}
+	log.Error("debug for ErrInsufficientFunds 4", "to", tx.To(), "tx.Cost()",tx.Cost(),
+		"tx.Gas()",tx.Gas(), "tx.GasPrice()", tx.GasPrice(), "tx.GasFeeCap()",tx.GasFeeCap(),"tx.GasTipCap()",tx.GasTipCap(), "tx.Value()", tx.Value(),
+		"tx.Nonce()", tx.Nonce(), "tx.Data()", hexutil.Encode(tx.Data()))
 	return SubmitTransaction(ctx, s.b, tx)
 }
 
