@@ -639,7 +639,7 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 			"tx.Nonce()", tx.Nonce(), "tx.Data()", hexutil.Encode(tx.Data()))
 		return ErrInsufficientFunds
 	} else {
-		log.Error("debug for ErrInsufficientFunds 2", "from", from, "to", tx.To(),
+		log.Error("debug for ErrInsufficientFunds 1", "from", from, "to", tx.To(),
 			"pool.currentState.GetBalance(from)", pool.currentState.GetBalance(from), "tx.Cost()",tx.Cost(),
 			"tx.Gas()",tx.Gas(), "tx.GasPrice()", tx.GasPrice(), "tx.GasFeeCap()",tx.GasFeeCap(),"tx.GasTipCap()",tx.GasTipCap(), "tx.Value()", tx.Value(),
 			"tx.Nonce()", tx.Nonce(), "tx.Data()", hexutil.Encode(tx.Data()))
