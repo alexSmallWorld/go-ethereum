@@ -1,1 +1,3 @@
-./build/bin/geth --log.debug --verbosity 5 --datadir ./data.dev  --http console --dev --allow-insecure-unlock --http.corsdomain '*'
+#./build/bin/geth --log.debug --verbosity 5 --datadir ./data.dev  --http console --dev --allow-insecure-unlock --http.corsdomain '*' --http.port 18545 --http.addr 0.0.0.0 --networkid 13371 --http.api debug,eth,web3,personal,net,admin,miner,txpool
+#./build/bin/geth --log.debug --verbosity 5 --datadir ./data.dev-tencent  --http console --dev --allow-insecure-unlock --http.corsdomain '*' --http.port 18545 --http.addr 0.0.0.0 --networkid 13371 --http.api debug,eth,web3,personal,net,admin,miner,txpool
+./build/bin/geth --log.debug --verbosity 5 --datadir ./data.dev-tencent  --http --dev --allow-insecure-unlock --http.corsdomain '*' --http.port 18545 --http.addr 0.0.0.0 --networkid 13371 --http.api debug,eth,web3,personal,net,admin,miner,txpool
